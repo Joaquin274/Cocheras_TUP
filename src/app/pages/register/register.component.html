@@ -1,0 +1,16 @@
+<main>
+    <div id="derecha">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" class="register-form">
+            <h1>Registrarse</h1>
+            <input type="text" id="username" placeholder="Usuario" name="username" ngModel required>
+            <input type="text" id="nombre" placeholder="Nombre" name="nombre" ngModel required>
+            <input type="text" id="apellido" placeholder="Apellido" name="apellido" ngModel required>
+            <input type="password" id="password" placeholder="Contraseña" name="password" ngModel required>
+            <input type="password" id="confirmPassword" placeholder="Repetir Contraseña" name="confirmPassword" ngModel required>
+            <button [disabled]="registerForm.invalid" class="boton-resaltado" type="submit">Registrarse</button>
+            @if(errorRegister) {
+                <p>Error en login</p>
+            }
+        </form>
+    </div>
+</main>

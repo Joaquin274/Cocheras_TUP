@@ -1,0 +1,85 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../../../public/Parking-fondo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Ancho fijo del formulario */
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+}
+
+.register-form h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.register-form input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 16px;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #f6f3ea;
+    width: 100%; /* Asegura que los inputs ocupen el ancho completo */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.register-form input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.register-form button {
+    padding: 0.75rem;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%; /* Asegura que el botón ocupe el ancho completo */
+}
+
+.register-form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.register-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.register-form p {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+.register-form a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-form a:hover {
+    text-decoration: underline;
+    color: #009dff;
+}

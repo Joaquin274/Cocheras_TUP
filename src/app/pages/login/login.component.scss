@@ -1,0 +1,82 @@
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  min-height: 100vh;
+}
+
+#izquierda {
+  flex: 2;
+  background-image: url('../../../../public/imagenes/cochera.jpg');
+  background-size: cover;
+  background-position: center; /* Asegura que la imagen se centre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Asegura que el texto sea legible en cualquier color de fondo */
+}
+#izquierda h1 {
+        font-size: 5rem; 
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añade sombra para mejorar la legibilidad */
+        margin: 0;
+    }
+
+#derecha {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-left: 3px solid #007bff; /* Línea azul entre las secciones */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px; /* Limita el ancho para que no se estire demasiado en pantallas grandes */
+  padding: 1.5rem; /* Añade algo de espacio interno */
+  border-radius: 8px; /* Bordes redondeados para una apariencia más moderna */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el formulario */
+  background-color: #fcf9ef;
+}
+
+.form input {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Añade un borde más visible */
+  border-radius: 4px; /* Bordes redondeados en los inputs */
+}
+
+.form button {
+  padding: 0.75rem;
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px; /* Bordes redondeados en el botón */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.form p {
+  text-align: center; /* Centra el texto */
+  margin-top: 1rem;
+}
+
+.form a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold; /* Hace el enlace más prominente */
+}
+
+.form a:hover {
+  text-decoration: none;
+  color: #0056b3;
+}

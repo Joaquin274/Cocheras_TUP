@@ -1,0 +1,24 @@
+main{
+    text-align: center;
+    margin-top: 50px;
+    color: #91efde;
+}
+
+img {
+    max-width: auto;
+    height: auto;
+}
+
+h2, p {
+    color: black;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+p a {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: 22px;
+    color: rgb(158, 11, 11); /* Hereda el color del elemento padre (en este caso, negro) */
+    text-decoration: none; /* Elimina el subrayado */
+}

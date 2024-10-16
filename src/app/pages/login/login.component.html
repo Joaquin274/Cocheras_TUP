@@ -1,0 +1,17 @@
+<main>
+  <div id="izquierda">
+    <h1>PARKING APP</h1>
+</div>
+<div id="derecha">
+    <form class="form" #LoginForm="ngForm" (ngSubmit)="login(LoginForm)">
+        <input type="text" id="usuario" placeholder="Usuario" name="username" ngModel required>
+        <input type="password" id="password" placeholder="Contraseña" name="password" ngModel required>
+        <button [disabled]="LoginForm.invalid" class="boton-resaltado" type="submit">Iniciar sesión</button>
+        @if(errorLogin) {
+            <p>Error en login</p>
+        }
+        <p>¿No iniciaste sesion? Aprieta <a [routerLink]="['/register']">aqui</a> para registrarse </p>
+    </form>
+    
+</div>
+</main>

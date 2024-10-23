@@ -1,8 +1,9 @@
 @use "./colors.scss";
 
-table{
+table {
   font-family: Arial, Helvetica, sans-serif;
   margin: 20px auto;
+
   thead, tr {
       display: grid;
       grid-template-columns: 50px 1fr 1fr 1fr;
@@ -12,21 +13,26 @@ table{
       height: 50px;
       border-bottom: 1px solid colors.$color-texto;
   }
-  thead{
+
+  thead {
     font-weight: bold;
   }
-  tr:hover{
-    background-color: rgba(0, 0, 0, 0.1)
+
+  tr:hover {
+    background-color: rgba(0, 0, 0, 0.1); // Fondo en hover
   }
-  .acciones-container{
+
+  .acciones-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    button{
+
+    button {
       width: 50px;
       display: grid;
       align-items: center;
-      img{
+
+      img {
         width: 80%;
         margin: auto;
       }
@@ -35,7 +41,7 @@ table{
 }
 
 .disponible {
-  background: linear-gradient(to right, #22a522, #00de00); /* De verde oscuro a verde claro */
+  background: linear-gradient(to right, #22a522, #00de00); // De verde oscuro a verde claro
   padding: 7.5px 12.5px;
   border-radius: 15px;
   color: colors.$color-texto-invertido;
@@ -44,7 +50,7 @@ table{
 }
 
 .ocupado {
-  background: linear-gradient(to right, #FF0000, #ff6a00); /* De rojo a naranja */
+  background: linear-gradient(to right, #FF0000, #ff6a00); // De rojo a naranja
   padding: 7.5px 12.5px;
   border-radius: 15px;
   color: colors.$color-texto-invertido;

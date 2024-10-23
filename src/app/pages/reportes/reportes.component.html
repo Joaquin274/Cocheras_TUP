@@ -1,14 +1,36 @@
-<div class="girasol">
-    <div class="centro"></div>
-    <div class="petalo petalo1"></div>
-    <div class="petalo petalo2"></div>
-    <div class="petalo petalo3"></div>
-    <div class="petalo petalo4"></div>
-    <div class="petalo petalo5"></div>
-    <div class="petalo petalo6"></div>
-    <div class="petalo petalo7"></div>
-    <div class="petalo petalo8"></div>
-</div>
-  
-
-<h1>No hay reportes, pero mira esta flor</h1>
+<main class="flex-column-center">
+    <table>
+        <thead>
+            <td>Cochera</td>
+            <td>Patente</td>
+            <td>Fecha</td>
+            <td>Cobrado</td>
+        </thead>
+        <tbody>
+            @for (transaccion of this.dataEstacionamientoService.ultimasTransacciones; track $index) {
+                <tr>
+                    <td>
+                        {{ transaccion.idCochera }}
+                    </td>
+                    <td>
+                        {{ transaccion.patente }}
+                    </td>
+                    <td>
+                        @if (transaccion.horaIngreso) {
+                            {{ transaccion.horaEgreso | date:'dd/MM/yyyy' }}
+                        } @else {
+                            -
+                        }
+                    </td>
+                    <td>
+                        @if (transaccion.costo) {
+                            {{ transaccion.costo | currency }}
+                        } @else {
+                            -
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Cochera } from '../../interfaces/cochera';
-import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { DataCocherasService } from '../../services/data-cocheras.service';
 import { DataAuthService } from '../../services/data-auth.service';
@@ -9,7 +9,7 @@ import { DataAuthService } from '../../services/data-auth.service';
 @Component({
   selector: 'app-estado-cocheras',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './estado-cocheras.component.html',
   styleUrl: './estado-cocheras.component.scss'
 })

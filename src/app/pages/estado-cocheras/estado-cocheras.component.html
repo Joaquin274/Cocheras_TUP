@@ -1,4 +1,3 @@
-
 <main class="flex-column-center">
     <table>
         <thead>
@@ -12,18 +11,32 @@
             <tr>
                 <td> {{ cochera.id }} </td>
                 <td>
-                    <span [ngClass]="{'disponible': !cochera.deshabilitada,'ocupado': cochera.deshabilitada}">{{ !cochera.deshabilitada ? 'Disponible' : 'Ocupado' }}</span>
+                    @if (cochera.deshabilitada) {
+                        <button class="deshabilitada">
+                            Deshabilitada
+                        </button>
+                    } @else if (!cochera.estacionamiento?.horaEgreso && cochera.estacionamiento?.horaIngreso) {
+                        <button (click)="cerrarEstacionamiento(cochera)">
+                            {{ cochera.estacionamiento?.patente }}
+                        </button>
+                    } @else {
+                        <button class="disponible" (click)="abrirEstacionamiento(cochera.id)">
+                            Disponible
+                        </button>
+                    }
                 </td>
                 <td>{{ cochera.descripcion }}</td>
                 <td class="acciones-container"> 
-                    @if(!cochera.deshabilitada){
-                        <button (click)="deshabilitarCochera($index)"><img src="Rojo.png" alt="Deshabilitar cochera"></button>
-                    } @else {
-                        <button (click)="habilitarCochera($index)"><img src="Verde.png" alt="Habilitar cochera"></button>
-
-                    }
-                    @if(esAdmin){   
-                        <button (click)="preguntarBorrarCochera($index)"><img src="Borrar.png" alt="Eliminar cochera"></button>
+                    @if(!cochera.estacionamiento?.patente){
+                        @if(!cochera.deshabilitada){
+                            <button (click)="preguntarDeshabilitarCochera(cochera.id)"><img src="img/Verde.png" alt="Deshabilitar cochera"></button>
+                        } @else {
+                            <button (click)="preguntarHabilitarCochera(cochera.id)"><img src="img/Rojo.png" alt="Habilitar cochera"></button>
+                            
+                        }
+                        @if(esAdmin){   
+                            <button (click)="preguntarBorrarCochera(cochera.id)"><img src="Borrar.png" alt="Eliminar cochera"></button>
+                        }
                     }
                 </td>
             </tr>
@@ -33,8 +46,8 @@
 
 @if(esAdmin){
     <div class="botonera">
-        <button id="borrar-todo" (click)="BorrarTodo()" class="boton-resaltado">Borrar Todo</button>
-        <button id="agregar-cochera" (click)="agregarCochera()" class="boton-resaltado">+</button>
+        <button (click)="preguntarAgregarCochera()" class="boton-resaltado" id="agregar-cochera">+</button>
     </div>
 }
 </main>
+

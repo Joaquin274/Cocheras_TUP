@@ -24,6 +24,7 @@ export class DataAuthService {
   usuario: Usuario | undefined;
 
   async login(loginData: Login) {
+    console.log(loginData)
     const res = await fetch(environment.API_URL+'login', {
         method: 'POST',
         headers: {

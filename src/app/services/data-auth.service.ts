@@ -2,19 +2,29 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/Usuario';
 import { Login, ResLogin } from '../interfaces/Login';
 import { Register } from '../interfaces/Register';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataAuthService {
 
-  constructor() { }
+  constructor() {
+    const token = this.getToken();
+    if(token){
+      if(!this.usuario) this.usuario = {
+        username: '',
+        token: token,
+        esAdmin: false
+      }
+      else this.usuario!.token = token;
+    }
+   }
 
   usuario: Usuario | undefined;
 
   async login(loginData: Login) {
-    const res = await fetch('http://localhost:4000/login', {
+    const res = await fetch(environment.API_URL+'login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +44,9 @@ export class DataAuthService {
         esAdmin: false
     };
 
-    const userDetailsRes = await fetch(`http://localhost:4000/usuarios/${encodeURIComponent(loginData.username)}`, {
+    localStorage.setItem("authToken", resJson.token);
+
+    const userDetailsRes = await fetch(environment.API_URL+`usuarios/${encodeURIComponent(loginData.username)}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${resJson.token}`,
@@ -52,7 +64,7 @@ export class DataAuthService {
   }
 
   async register(registerData: Register) {
-    const res = await fetch('http://localhost:4000/register', {
+    const res = await fetch(environment.API_URL+'register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,7 +73,14 @@ export class DataAuthService {
     });
 
     if (res.status !== 201) return;
-    console.log(res)
     return res;
+  }
+
+  getToken() {
+    return localStorage.getItem("authToken");
+  }
+
+  clearToken() {
+    localStorage.removeItem("authToken")
   }
 }

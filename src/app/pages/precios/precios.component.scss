@@ -1,0 +1,102 @@
+/* Estilos Generales */
+body {
+    font-family: 'Arial', sans-serif; /* Tipo de letra legible */
+    background-color: #f4f4f9; /* Fondo claro y suave */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+  }
+  
+  /* Tabla de Precios */
+  .tabla-precios {
+    width: 90%; /* Ancho del 90% para una buena adaptabilidad */
+    max-width: 800px; /* Ancho máximo */
+    margin: 20px auto; /* Centramos la tabla */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta bordes */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  
+    table {
+      width: 100%; /* Ancho completo */
+      border-collapse: collapse; /* Sin espacios entre bordes */
+      background-color: #fff; /* Fondo blanco para la tabla */
+  
+      thead {
+        background-color: #007bff; /* Color azul para el encabezado */
+        color: #fff; /* Texto blanco */
+        text-align: left; /* Alinear texto a la izquierda */
+        
+        th {
+          padding: 15px; /* Espaciado interno */
+          font-weight: bold; /* Negrita */
+        }
+      }
+  
+      tbody {
+        tr {
+          &:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Sombreado en hover */
+          }
+  
+          td {
+            padding: 12px; /* Espaciado interno */
+            border-bottom: 1px solid #ddd; /* Borde inferior claro */
+  
+            &:last-child {
+              text-align: center; /* Centrar contenido de acciones */
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Botones de Acción */
+  button {
+    padding: 8px 12px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transiciones suaves */
+  
+    &.editar {
+      background-color: #ffc107; /* Color amarillo para editar */
+      color: #fff; /* Texto blanco */
+      
+      &:hover {
+        background-color: #e0a800; /* Color más oscuro al pasar el mouse */
+        transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
+      }
+    }
+  
+    &.borrar {
+      background-color: #dc3545; /* Color rojo para borrar */
+      color: #fff; /* Texto blanco */
+      
+      &:hover {
+        background-color: #c82333; /* Color más oscuro al pasar el mouse */
+        transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
+      }
+    }
+  }
+  
+  /* Botón "Agregar Precio" */
+  .agregar-precio {
+    display: block; /* Mostrar como bloque */
+    width: 200px; /* Ancho fijo */
+    margin: 20px auto; /* Centrar el botón */
+    padding: 10px; /* Espaciado interno */
+    background-color: #28a745; /* Color verde para agregar */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrar texto */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transiciones suaves */
+  
+    &:hover {
+      background-color: #218838; /* Color más oscuro al pasar el mouse */
+      transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
+    }
+  }
+  

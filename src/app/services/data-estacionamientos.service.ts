@@ -18,12 +18,12 @@ export class DataEstacionamientosService {
       console.error("No hay estacionamientos disponibles");
     }
 
-    const transaccionesFiltradas = this.dataCocheraService.estacionamientos.filter((estacionamiento: { horaEgreso: null | undefined; }) => 
+    const transaccionesFiltradas = this.dataCocheraService.estacionamientos.filter(estacionamiento => 
         estacionamiento.horaEgreso !== null && estacionamiento.horaEgreso !== undefined
     );
 
     const ultimasTransacciones = transaccionesFiltradas
-        .sort((a: { horaIngreso: string; }, b: { horaIngreso: string; }) => new Date(b.horaIngreso.replace(" ", "T")).getTime() - new Date(a.horaIngreso.replace(" ", "T")).getTime()) // Ordenar de más reciente a más antiguo
+        .sort((a, b) => new Date(b.horaIngreso.replace(" ", "T")).getTime() - new Date(a.horaIngreso.replace(" ", "T")).getTime()) // Ordenar de más reciente a más antiguo
         .slice(0, cantidad);
 
     this.ultimasTransacciones = ultimasTransacciones;

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Cochera_TUP": {
+    "ProyectoCochera": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cochera-tup",
+            "outputPath": "dist/proyecto-cochera",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -28,7 +28,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/public"
               }
             ],
             "styles": [
@@ -70,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Cochera_TUP:build:production"
+              "buildTarget": "ProyectoCochera:build:production"
             },
             "development": {
-              "buildTarget": "Cochera_TUP:build:development"
+              "buildTarget": "ProyectoCochera:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -106,6 +107,6 @@
     }
   },
   "cli": {
-    "analytics": "30b2fd84-d9ea-4b3f-bf34-36dbfcc7a65f"
+    "analytics": false
   }
 }

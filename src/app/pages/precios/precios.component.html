@@ -1,1 +1,28 @@
-<p>precios works!</p>
+<div class="tabla-precios">
+    <table>
+        <thead>
+            <tr>
+                <th>Tiempo</th>
+                <th>Costo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let precio of precios">
+                <td>{{ precio.descripcion }}</td>
+                <td>{{ precio.valor }}</td>
+                <td>
+                    <button (click)="editarPrecio(precio)">
+                        <img src="pencil.png" alt="Editar" />
+                    </button>
+                    <button (click)="borrarPrecio(precio)">
+                        <img src="delete.png" alt="Eliminar" />
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Botón "Agregar Precio" centrado -->
+<button class="agregar-precio" (click)="agregarPrecio()">Agregar Precio</button>

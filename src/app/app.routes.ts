@@ -4,17 +4,18 @@ import { EstadoCocherasComponent } from './pages/estado-cocheras/estado-cocheras
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardContainerComponent } from './pages/dashboard-container/dashboard-container.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
+import { PreciosComponent } from './pages/precios/precios.component'; // Importa el componente de precios
 import { soloPublicoGuard } from './guards/solo-publico.guard';
 import { soloAdminGuard } from './guards/solo-admin.guard';
 import { soloLogueadoGuard } from './guards/solo-logueado.guard';
-import {  RegisterComponent } from './pages/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
     {
         path: "",
         component: DashboardContainerComponent,
         canActivate: [soloLogueadoGuard],
-        children:[
+        children: [
             {
                 path: "estado-cocheras",
                 component: EstadoCocherasComponent
@@ -24,24 +25,23 @@ export const routes: Routes = [
                 component: ReportesComponent,
                 canActivate: [soloAdminGuard]
             },
+            {
+                path: "precios", 
+                component: PreciosComponent,
+                canActivate: [soloLogueadoGuard]
+            }
         ]
     },
     {
         path: "register",
         component: RegisterComponent,
         canActivate: [soloPublicoGuard]
-
     },
     {
         path: "login",
         component: LoginComponent,
         canActivate: [soloPublicoGuard]
     },
-    // {
-    //     path: "",
-    //     redirectTo: "login",
-    //     pathMatch: "full"
-    // },
     {
         path: "not-found",
         component: NotFoundComponent

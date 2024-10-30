@@ -29,9 +29,9 @@
                 <td class="acciones-container"> 
                     @if(!cochera.estacionamiento?.patente){
                         @if(!cochera.deshabilitada){
-                            <button (click)="preguntarDeshabilitarCochera(cochera.id)"><img src="img/Verde.png" alt="Deshabilitar cochera"></button>
+                            <button (click)="preguntarDeshabilitarCochera(cochera.id)"><img src="Verde.png" alt="Deshabilitar cochera"></button>
                         } @else {
-                            <button (click)="preguntarHabilitarCochera(cochera.id)"><img src="img/Rojo.png" alt="Habilitar cochera"></button>
+                            <button (click)="preguntarHabilitarCochera(cochera.id)"><img src="Rojo.png" alt="Habilitar cochera"></button>
                             
                         }
                         @if(esAdmin){   

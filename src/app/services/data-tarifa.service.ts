@@ -1,29 +1,31 @@
 import { inject, Injectable } from '@angular/core';
 import { Tarifa } from '../interfaces/tarifa';
 import { DataAuthService } from './data-auth.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataTarifasService {
-  tarifas: Tarifa[] = []
-  authService = inject(DataAuthService);
+    tarifas: Tarifa[] = []
+    authService = inject(DataAuthService);
 
-  constructor() { 
+constructor() { 
     this.getTarifas()
-  }
+}
 
-  async getTarifas(){
-    const res = await fetch('http://localhost:4000/tarifas',{
-      headers: {
-        authorization:'Bearer '+localStorage.getItem("authToken")
-      },
+async getTarifas(){
+    const res = await fetch(environment.API_URL+'tarifas',{
+    headers: {
+        authorization:'Bearer '+this.authService.usuario?.token
+    },
     })
     if(res.status !== 200) {
-      console.log("Error")
+    console.log("Error")
     } else {
-      this.tarifas = await res.json();
+    console.log(res)
+    this.tarifas = await res.json();
     }
-  }
+}
 
 }
